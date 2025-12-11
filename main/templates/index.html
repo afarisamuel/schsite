@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Educated
+{% endblock title %}
+{% block content %}
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <div class="owl-carousel header-carousel position-relative">
+        <div class="owl-carousel-item position-relative">
+            <img alt="" class="img-fluid" src="{% static 'img/carousel1.JPG' %}">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                 style="background: rgba(24, 29, 56, .7);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-sm-10 col-lg-8">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">SHAPING FUTURE
+                                LEADERS</h5>
+                            <h1 class="display-3 text-white animated slideInDown">Building Academic Excellence for
+                                Tomorrow</h1>
+                            <p class="fs-5 text-white mb-4 pb-2">We provide a structured and disciplined environment
+                                where our students are empowered by expert mentorship to achieve superior results in
+                                their national examinations and beyond.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel-item position-relative">
+            <img alt="" class="img-fluid" src="{% static 'img/carousel2.JPG' %}">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                 style="background: rgba(24, 29, 56, .7);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-sm-10 col-lg-8">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">PROVEN PATHWAY TO
+                                SUCCESS</h5>
+                            <h1 class="display-3 text-white animated slideInDown">Your Foundation for High School
+                                Achievement
+                            </h1>
+                            <p class="fs-5 text-white mb-4 pb-2">Choose the platform committed to student growth. We
+                                deliver rigorous instruction, focused resources, and the support needed to unlock every
+                                student's full academic potential.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+
+
+{% include 'services.html' %}
+
+
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img alt="" class="img-fluid position-absolute w-100 h-100" src="{{ about.image.url }}"
+                         style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                <h1 class="mb-4">{{ about.title }}</h1>
+                <p class="mb-4">{{ about.subtitle }}</p>
+                <div class="row gy-2 gx-4 mb-4">
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
+                    </div>
+                </div>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+<!-- Categories Start -->
+<div class="container-xxl py-5 category">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
+            <h1 class="mb-5">Courses Categories</h1>
+        </div>
+        <div class="row g-3">
+            <div class="col-lg-7 col-md-6">
+                <div class="row g-3">
+                    {% for category in course_categories %}
+                    {% if forloop.first %}
+                    <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+                        <a class="position-relative d-block overflow-hidden" href="">
+                            <img alt="" class="img-fluid" src="{{ category.image.url }}">
+                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
+                                 style="margin: 1px;">
+                                <h5 class="m-0">{{ category.name }}</h5>
+                            </div>
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter > 1 and forloop.counter < 4 %}
+                    <div class="col-lg-6 col-md-12 wow zoomIn"
+                         data-wow-delay="0.3s">
+                        <a class="position-relative d-block overflow-hidden" href="">
+                            <img alt="" class="img-fluid" src="{{ category.image.url }}">
+                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
+                                 style="margin: 1px;">
+                                <h5 class="m-0">{{ category.name }}</h5>
+                            </div>
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% for category in course_categories %}
+            {% if forloop.last %}
+            <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
+                <a class="position-relative d-block h-100 overflow-hidden" href="">
+                    <img alt="" class="img-fluid position-absolute w-100 h-100" src="{{ category.image.url }}"
+                         style="object-fit: cover;">
+                    <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
+                        <h5 class="m-0">{{ category.name }}</h5>
+                    </div>
+                </a>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Categories Start -->
+
+
+<!-- Courses Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+            <h1 class="mb-5">Popular Courses</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            {% for course in courses %}
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="course-item bg-light">
+                    <div class="position-relative overflow-hidden">
+                        <img alt="" class="img-fluid" src="{{ course.image.url }}">
+
+                    </div>
+                    <div class="text-center p-4 pb-3">
+                        <h5 class="mb-4">{{ course.name }}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Courses End -->
+
+
+<!-- Team Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Staff</h6>
+            <h1 class="mb-5">School Staff</h1>
+        </div>
+        <div class="row g-4">
+            {% for staff in staffs %}
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="team-item bg-light">
+                    <div class="overflow-hidden">
+                        <img alt="" class="img-fluid" src="{{ staff.image.url }}">
+                    </div>
+                    <div class="text-center p-4">
+                        <h5 class="mb-0">{{ staff.name }}</h5>
+                        <small>{{ staff.designation }}</small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+
+
+{% endblock content %}
