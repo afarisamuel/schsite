@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+from django.conf.global_settings import CSRF_TRUSTED_ORIGINS
 from pathlib import Path
 import os
 
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-$k^vxlalj6j%x8!1o_lrzy70uu6vg7ky0a8@lywjj+@6klmq_o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "njuascogh.org", "www.njuascogh.org"]
 
 
 # Application definition
@@ -138,11 +139,22 @@ USE_I18N = True
 
 USE_TZ = True
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://127.0.0.1',
+    'http://localhost',
+    'https://njuascogh.org',
+    'https://www.njuascogh.org',
+    'http://njuascogh.org',
+    'http://www.njuascogh.org',
+]
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
 
 MEDIA_URL = "/media/"
 
